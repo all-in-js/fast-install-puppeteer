@@ -1,13 +1,10 @@
 const c = require('chalk');
-const os = require('os');
-const {existsSync, mkdirSync} = require('fs');
-const {join} = require('path');
 const {execSync} = require('child_process');
 const spawn = require('cross-spawn');
-
 const pkg = require('../package');
-const pkgName = 'puppeteer';
-const cachePkg = join(getHomedir(), '.puppeteer');
+
+const pkgVersion = process.env.PUPPETEER_VERSION || 'latest';
+const pkgName = `puppeteer@${pkgVersion}`;
 const mirrorHost = process.env.PUPPETEER_DOWNLOAD_HOST || 'https://npm.taobao.org/mirrors';
 const registryHost = 'https://registry.npm.taobao.org/';
 const useCmd = (() => {
@@ -22,7 +19,7 @@ const useInstall = useCmd === 'yarn' ? 'add' : 'install';
 
 // function tryInstall() {
   try {
-    const pp = require(`${pkgName}/package`);
+    const pp = require(`puppeteer/package`);
     log(`${pkgName}@${pp.version} already exists.`);
   } catch (e) {
     peerInstall();
@@ -30,10 +27,11 @@ const useInstall = useCmd === 'yarn' ? 'add' : 'install';
 // }
 
 function peerInstall() {
+  log(`I will use ${useCmd}.`);
   log(`ready to download ${pkgName}.`);
   log(`use mirror: ${mirrorHost}.`);
   log(`use registry: ${registryHost}.`);
-  spawn.sync('cd', [cachePkg, useCmd, 'run', 'setenv', useCmd, useInstall, pkgName, '--registry', registryHost], {stdio: 'inherit'});
+  spawn.sync(useCmd, ['run', 'setenv', useCmd, useInstall, pkgName, '--registry', registryHost, '--prefer-offline'], {stdio: 'inherit'});
   log(`${pkgName} has installed, enjoy your work.`);
 }
 

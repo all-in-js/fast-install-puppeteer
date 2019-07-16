@@ -9,14 +9,18 @@
     "fip": "bin"
   },
   "scripts": {
-    "setenv": "cross-env PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors"
+    "setenv": "cross-env PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors",
+    "install": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/famanoder/fast-install-puppeteer.git"
   },
   "dependencies": {
     "chalk": "^2.4.2",
     "cross-env": "^5.2.0",
-    "cross-spawn": "^6.0.5",
-    "puppeteer": "^1.18.1"
+    "cross-spawn": "^6.0.5"
   },
   "devDependencies": {},
-  "keywords": []
+  "keywords": ["puppeteer", "fast puppeteer", "download puppeteer", "puppeteer mirror"]
 }
