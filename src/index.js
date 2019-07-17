@@ -3,7 +3,14 @@ const {execSync} = require('child_process');
 const spawn = require('cross-spawn');
 const pkg = require('../package');
 
-const pkgVersion = process.env.PUPPETEER_VERSION || 'latest';
+let pkgVersion = 'latest';
+
+try {
+  const {puppeteer_version} = require('../../../package.json');
+  if(puppeteer_version) {
+    pkgVersion = puppeteer_version;
+  }
+}catch(e) {}
 const pkgName = `puppeteer@${pkgVersion}`;
 const mirrorHost = process.env.PUPPETEER_DOWNLOAD_HOST || 'https://npm.taobao.org/mirrors';
 const registryHost = 'https://registry.npm.taobao.org/';

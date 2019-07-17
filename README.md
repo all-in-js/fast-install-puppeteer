@@ -6,6 +6,8 @@ I strongly recommend that you should use 'yarn' rather than 'npm', if you have a
 
 * **Install**
 
+I will install a latest version by the default, if you want to a specified version, you can set a property 'puppeteer_version' in your local package.json file.
+
 ```js
 yarn add fast-install-puppeteer
 // or
