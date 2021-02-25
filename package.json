@@ -1,11 +1,15 @@
 {
-  "name": "fast-install-puppeteer",
-  "version": "1.0.5",
+  "name": "@all-in-js/fast-install-puppeteer",
+  "version": "1.0.0",
   "description": "a fast way to install puppeteer.",
   "author": "famanoder",
   "license": "MIT",
   "bin": {
     "fip": "bin"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "setenv": "cross-env PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors",
@@ -13,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/famanoder/fast-install-puppeteer.git"
+    "url": "https://github.com/all-in-js/fast-install-puppeteer"
   },
   "dependencies": {
     "chalk": "^2.4.2",

@@ -9,15 +9,15 @@ I strongly recommend that you should use 'yarn' rather than 'npm', if you have a
 I will install a latest version by the default, if you want to a specified version, you can set a property 'puppeteer_version' in your local package.json file.
 
 ```js
-yarn add fast-install-puppeteer
+yarn add @all-in-js/fast-install-puppeteer
 // or
-npm i fast-install-puppeteer
+npm i @all-in-js/fast-install-puppeteer
 ```
 
 * **usage**
 
 ```js
-const puppeteer = require('fast-install-puppeteer');
+const puppeteer = require('@all-in-js/fast-install-puppeteer');
 
 (async () => {
   const browser = await puppeteer.launch();
